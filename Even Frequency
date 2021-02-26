@@ -46,5 +46,9 @@ int main()
 	iRet=FrqEvnNum( Arr,iValue);
 
 	printf("frequency is:%d\n",iRet );
+	
+	free(Arr);
+	
+	return 0;
 
 }
