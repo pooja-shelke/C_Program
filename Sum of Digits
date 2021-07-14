@@ -1,0 +1,35 @@
+# C_Program
+//Accept number from user and find addition of that number
+
+#include <stdio.h>
+
+int SumOfDigit(int ivalue)
+{
+    int iSum=0;
+    int iDigit=0;
+    
+    while(ivalue!=0)
+    {
+       iDigit=ivalue%10;
+       iSum=iSum+iDigit;
+       ivalue=ivalue/10;
+    }
+    return iSum;
+}
+
+int main()
+{
+    
+    int iValue=0;
+    int iRet=0;
+    
+    printf("Enter Number");
+    scanf("%d",&iValue);
+    
+    iRet=SumOfDigit(iValue);
+    printf("Sum of a digit is:%d",iRet);
+    
+  
+    
+    return 0;
+}
