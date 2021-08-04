@@ -1,30 +1,35 @@
 #include<stdio.h>
 
-void Display(int iNo)
+void Display()
 {
-
-static int i=0;
-static char ch='a';
-
-	if(i<iNo)
+	
+	static int i=1;
+static char ch='a';	
+	if(i<=6)    
+	{
+		printf("%c\t",ch);
+		i++;
+	    ch++;
+	}
+	
+	
+	Display();
+	/*
+	int i=0;
+	char ch='a';
+	for(i=1;i<=6;i++)    
 	{
 		printf("%c\t",ch);
 		ch++;
-		i++;
 	}
 	
-	Display(iNo);
+	*/
 	
 }
 
 int main()
 {
-	int iNo=0;
-	
-	printf("Enter Number:");
-	scanf("%d",&iNo);
-	
-	Display(iNo);
-	
-	return 0;
+  Display();
+  
+  return 0;
 }

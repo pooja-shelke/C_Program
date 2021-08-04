@@ -1,29 +1,29 @@
 #include<stdio.h>
 
-void Display(int iNo)
+void Display()
 {
-
-static int i=0;
-
-
-	if(iNo>i)
+	static int i=5;   
+	if(i>=1)    
 	{
-		printf("%d\t",iNo);
-		iNo--;
+		printf("%d\t",i);
+		i--;
 	}
 	
-	Display(iNo);
 	
+	/*
+	
+	for(i=5;i>=1;i--)    
+	{
+		printf("%d\t",i);
+	}
+	
+	*/
+	Display();
 }
-	
+
 int main()
 {
-	int iNo=0;
-	
-	printf("Enter Number:");
-	scanf("%d",&iNo);
-	
-	Display(iNo);
-	
-	return 0;
+  Display();
+  
+  return 0;
 }
