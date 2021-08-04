@@ -1,31 +1,34 @@
 #include<stdio.h>
-	
-int Fact(int iNo)
+
+int Min(int iValue)
 {
-static int iMult=1;
-	if(iNo!=0)
-	{
-		
-		iMult=iNo*iMult;
-		
-		//printf("%d\t",iMult);
-		iNo--;
-		
-		
+	static int iMin=9;
 	
-		Fact(iNo);
+	int iDigit=0;
+	
+	if(iValue!=0)
+	{
+		iDigit=iValue%10;
+		
+		if(iDigit<iMin)
+		{
+			iMin=iDigit;
+		}
+		iValue=iValue/10;
+		
+	    Min(iValue);
 	}
-	return iMult;
+	return iMin;
 }
 
 int main()
 {
-	int iNo=0;
-	int iRet=0;
-	printf("Enter Number:");
+	int iNo=0,iRet=0;;
+	
+	printf("Enter number:");
 	scanf("%d",&iNo);
 	
-	iRet=Fact(iNo);
+	iRet=Min(iNo);
 	
 	printf("%d",iRet);
 	

@@ -1,29 +1,42 @@
 #include<stdio.h>
 
-void Display(int iNo)
-{
-
-static int i=0;
-
-
-	if(iNo>i)
+int WhiteSpace(char Str[])
+{/*
+	int i=0;int iCnt=0;    
+	while(Str[i]!='\0')
 	{
-		printf("%d\t",iNo);
-		printf("*\t");
-		iNo--;
+		if(Str[i]==' ')
+		{
+			iCnt++;
+		}
+		i++;
 	}
+	return iCnt;
+	*/
+	static int i=0,iCnt=0;
 	
-	Display(iNo);	
+	if(Str[i]!='\0')
+	{
+		if(Str[i]==' ')
+		{
+			iCnt++;
+		}
+		i++;
+		
+		WhiteSpace(Str);
+	}	
+return iCnt;
 }
-
 int main()
 {
-	int iNo=0;
+	char str[30];
+	int iRet=0;
+    printf("Enter String:");
+	scanf("%[^'\n']s",&str);
 	
-	printf("Enter Number:");
-	scanf("%d",&iNo);
+	iRet=WhiteSpace(str);
 	
-	Display(iNo);
+	printf("%d",iRet);
 	
 	return 0;
 }
