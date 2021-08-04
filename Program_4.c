@@ -1,36 +1,29 @@
 #include<stdio.h>
 
-int Min(int iValue)
+void Display(int iNo)
 {
-	static int iMin=9;
-	
-	int iDigit=0;
-	
-	if(iValue!=0)
+
+static int i=0;
+static char ch='A';
+
+	if(i<iNo)
 	{
-		iDigit=iValue%10;
-		
-		if(iDigit<iMin)
-		{
-			iMin=iDigit;
-		}
-		iValue=iValue/10;
-		
-	    Min(iValue);
+		printf("%c\t",ch);
+		ch++;
+		i++;
 	}
-	return iMin;
+	
+	Display(iNo);
 }
 
 int main()
 {
-	int iNo=0,iRet=0;;
+	int iNo=0;
 	
-	printf("Enter number:");
+	printf("Enter Number:");
 	scanf("%d",&iNo);
 	
-	iRet=Min(iNo);
-	
-	printf("%d",iRet);
+	Display(iNo);
 	
 	return 0;
 }

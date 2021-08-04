@@ -1,33 +1,29 @@
 #include<stdio.h>
 
-int CntChar(char str[])
+void Display(int iNo)
 {
-	 static int i=0,iCnt=0;
-	 
-	if(str[i]!='\0')
-	{
-		if((str[i]>='a')&&(str[i]<='z'))
-		{
-			iCnt++;
-		}
-		i++;
-		CntChar(str);
-	}
-	return iCnt;
-}
 
+static int i=0;
+
+
+	if(iNo>i)
+	{
+		printf("%d\t",iNo);
+		iNo--;
+	}
+	
+	Display(iNo);
+	
+}
+	
 int main()
 {
-	char str[30];
-	int iRet=0;
-	printf("Enter String:");
-    scanf("%[^'\n']s",&str);
+	int iNo=0;
 	
-	iRet=CntChar(str);
+	printf("Enter Number:");
+	scanf("%d",&iNo);
 	
-	printf("%d",iRet);
+	Display(iNo);
 	
 	return 0;
-	
-	
 }

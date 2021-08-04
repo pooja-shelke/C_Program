@@ -1,36 +1,37 @@
 #include<stdio.h>
 
-int Max(int iValue)
+void Display(int iNo)
 {
-	static int iMax=0;
 	
-	int iDigit=0;
-	
-	if(iValue!=0)
+	static int i=1;
+	if(i<=iNo)
 	{
-		iDigit=iValue%10;
-		
-		if(iDigit>iMax)
-		{
-			iMax=iDigit;
-		}
-		iValue=iValue/10;
-		
-	    Max(iValue);
+		printf("%d\t",i);
+		i++;
 	}
-	return iMax;
-}
+	
+	Display(iNo);
+	
+	/*
+	int i=0;
+	for(i=1;i<=iNo;i++)
+	{
+		printf("%d",i);
+	}
+	*/
+	}
+	
+
+
 
 int main()
 {
-	int iNo=0,iRet=0;;
+	int iNo=0;
 	
-	printf("Enter number:");
+	printf("Enter Number:");
 	scanf("%d",&iNo);
 	
-	iRet=Max(iNo);
-	
-	printf("%d",iRet);
+	Display(iNo);
 	
 	return 0;
 }

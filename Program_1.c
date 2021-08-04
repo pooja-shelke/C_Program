@@ -1,42 +1,37 @@
 #include<stdio.h>
 
-int WhiteSpace(char Str[])
-{/*
-	int i=0;int iCnt=0;    
-	while(Str[i]!='\0')
+void Display(int iNo)
+{
+	
+	static int i=0;
+	if(i<iNo)
 	{
-		if(Str[i]==' ')
-		{
-			iCnt++;
-		}
+		printf("*\t");
 		i++;
 	}
-	return iCnt;
-	*/
-	static int i=0,iCnt=0;
 	
-	if(Str[i]!='\0')
+	Display(iNo);
+	
+	/*
+	int i=0;
+	for(i=1;i<=iNo;i++)
 	{
-		if(Str[i]==' ')
-		{
-			iCnt++;
-		}
-		i++;
-		
-		WhiteSpace(Str);
-	}	
-return iCnt;
-}
+		printf("*");
+	}
+	*/
+	}
+	
+
+
+
 int main()
 {
-	char str[30];
-	int iRet=0;
-    printf("Enter String:");
-	scanf("%[^'\n']s",&str);
+	int iNo=0;
 	
-	iRet=WhiteSpace(str);
+	printf("Enter Number:");
+	scanf("%d",&iNo);
 	
-	printf("%d",iRet);
+	Display(iNo);
 	
 	return 0;
 }
