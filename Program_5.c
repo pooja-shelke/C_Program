@@ -1,43 +1,31 @@
-
 #include<stdio.h>
-#include<stdlib.h>
-#include<unistd.h>
-#include<fcntl.h>
 
-void File(char name[],int size)
+int Reverse(int iValue) 
 {
-	int fd=0,ret=0;
-	char *arr=NULL;
-	arr=(char *)malloc(size);
-	fd=open(name,O_RDONLY);
+	 static int iRev=1;
 	
-	if(fd==-1)
-	{
-		printf("Unable to open");
-		return;
+	int iDigit=0;
+	
+	if(iValue!=0)
+	{	
+		iDigit=iValue%10;
+		iRev=iRev*10+iDigit;
+		iValue=iValue/10;
+		
+	    Reverse(iValue);
 	}
-	
-	ret=read(fd,arr,size);
-	
-		write(1,arr,ret);
-	
-	
-	close(fd);
-	free(arr);
+return iRev;
 }
-
-
 int main()
 {
-	char name[30];
-	int size=0;
-	printf("Enter file name:");
-	scanf(" %s",&name);
+	int iNo=0,iRet=0;;
 	
-	printf("Enter size:");
-	scanf("%d",&size);
+	printf("Enter number:");
+	scanf("%d",&iNo);
 	
-	File(name,size);
+	iRet=Reverse(iNo);
+	
+	printf("%d",iRet);
 	
 	return 0;
 }

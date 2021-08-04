@@ -1,46 +1,36 @@
 #include<stdio.h>
-#include<stdlib.h>
-#include<unistd.h>
-#include<fcntl.h>
 
-int Display(char fname[])
+int Max(int iValue)
 {
-	int fd=0;
-	char arr[100];
-	int ret=0;
-	int iCnt=0,i=0;
-	fd=open(fname,O_RDONLY);
+	static int iMax=0;
 	
-	if(fd==-1)
-	{
-		printf("Unable to open");
-		return -1;
-	}
+	int iDigit=0;
 	
-	while((ret=read(fd,arr,sizeof(arr)))!=0)
+	if(iValue!=0)
 	{
-		for(i=0;i<ret;i++)
+		iDigit=iValue%10;
+		
+		if(iDigit>iMax)
 		{
-			if((arr[i]>='a')&&(arr[i]<='z'))
-			{
-				iCnt++;
-			}
+			iMax=iDigit;
 		}
+		iValue=iValue/10;
+		
+	    Max(iValue);
 	}
-    return iCnt;
-	close(fd);	
+	return iMax;
 }
+
 int main()
 {
-	char fname[30];
-	int ret=0;
-	printf("Enter file name:");
-	scanf("%s",fname);
+	int iNo=0,iRet=0;;
 	
+	printf("Enter number:");
+	scanf("%d",&iNo);
 	
-	ret=Display(fname);
+	iRet=Max(iNo);
 	
-	printf("Number of small charactor is%d",ret);
+	printf("%d",iRet);
 	
 	return 0;
 }
