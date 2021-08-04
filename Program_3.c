@@ -1,33 +1,31 @@
 #include<stdio.h>
 
-int CntChar(char str[])
+int StrLen(char str[])
 {
-	 static int i=0,iCnt=0;
-	 
-	if(str[i]!='\0')
-	{
-		if((str[i]>='a')&&(str[i]<='z'))
-		{
-			iCnt++;
-		}
-		i++;
-		CntChar(str);
-	}
-	return iCnt;
+static int i=0,iCnt=0;
+
+if(str[i]!='\0')
+{
+	iCnt++;
+	i++;
+	StrLen(str);
+}
+
+	
+
+return iCnt;
+	
 }
 
 int main()
 {
-	char str[30];
+	char ch[30];
 	int iRet=0;
-	printf("Enter String:");
-    scanf("%[^'\n']s",&str);
+	printf("Enter string:");
+	scanf("%[^'\n']s",&ch);
 	
-	iRet=CntChar(str);
+	iRet=StrLen(ch);
 	
 	printf("%d",iRet);
-	
 	return 0;
-	
-	
 }

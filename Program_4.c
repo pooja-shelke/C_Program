@@ -1,39 +1,33 @@
 #include<stdio.h>
-#include<stdlib.h>
-#include<unistd.h>
-#include<fcntl.h>
-
-void Display(char fname[])
+	
+int Fact(int iNo)
 {
-	int fd=0;
-	char arr[100];
-	int ret=0;
-	fd=open(fname,O_RDONLY);
-	
-	if(fd==-1)
+static int iMult=1;
+	if(iNo!=0)
 	{
-		printf("Unable to open");
-		return;
+		
+		iMult=iNo*iMult;
+		
+		//printf("%d\t",iMult);
+		iNo--;
+		
+		
+	
+		Fact(iNo);
 	}
-	
-	ret=read(fd,arr,sizeof(arr));
-    printf("file size is%d bytes of file",sizeof(arr));
-
-	close(fd);
-	
-	
-	
-	
+	return iMult;
 }
+
 int main()
 {
-	char fname[30];
+	int iNo=0;
+	int iRet=0;
+	printf("Enter Number:");
+	scanf("%d",&iNo);
 	
-	printf("Enter file name:");
-	scanf("%s",fname);
+	iRet=Fact(iNo);
 	
-	
-	Display(fname);
+	printf("%d",iRet);
 	
 	return 0;
 }
